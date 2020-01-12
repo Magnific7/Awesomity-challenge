@@ -130,15 +130,12 @@ class EmployeeByPosition(Resource):
         employees = Employees.query.filter_by(Employees.position.ilike(r"%{}%".format(keyword))).all()
         employees = employee_schema.dump(employees).data
         return {'status':'success','data':result}, 200
-        
+
 class EmployeeByEmail(Resource):
     def get(self, keyword):
         employees = Employees.query.filter_by(Employees.email.ilike(r"%{}%".format(keyword))).all()
         employees = employee_schema.dump(employees).data
-        return{
-            'status': 'success'
-            'data': employees
-        }, 200
+        return {'status':'success','data':result}, 200
 
 class EmployeeByPhonenumber(Resource):
     def get(self, keyword):
