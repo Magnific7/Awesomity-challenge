@@ -17,7 +17,7 @@ api.add_resource(EmployeeByPosition, '/employees/position/<string:keyword>')
 #route to search by name
 api.add_resource(EmployeeByName, '/employees/name/<string:keyword>')
 #route to search by phonenumber
-api.add_resource(EmployeeByPhonenumber, '/employees/phone/<int:id>')
+api.add_resource(EmployeeByPhonenumber, '/employees/phone/<string:keyword>')
 #route to activate an employee
 api.add_resource(EmployeeActivate, '/employees/<int:id>/activate')
 #route to suspend an employee
