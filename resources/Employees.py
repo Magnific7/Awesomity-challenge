@@ -81,10 +81,8 @@ class EmployeeDelete(Resource):
         employees = Employees.query.filter_by(id = id).delete()
         db.session.commit()
 
-        result = employee_schema.dump(employees).datareturn{
-            'status':'sucess',
-            'data': result
-        }, 201
+        result = employee_schema.dump(employees).data
+        return {'status':'success','data':result}, 201
 
 class EmployeeSuspend(Resource):
     '''
@@ -99,10 +97,7 @@ class EmployeeSuspend(Resource):
         db.session.commit()
 
         result = employee_schema.dump(employees).data
-        return {
-            'status': 'success'
-            'data': result
-        }, 201
+        return {'status':'success','data':result}, 201
 
 class EmployeeActivate(Resource):
     '''
@@ -117,10 +112,8 @@ class EmployeeActivate(Resource):
         db.session.commit()
 
         result = employee_schema.dump(employees).data
-        return {
-            'status': 'success'
-            'data': result
-        }, 201
+        return {'status':'success','data':result}, 201
+
 
         ## These are the search functionalities
 class EmployeeByName(Resource):
@@ -130,20 +123,14 @@ class EmployeeByName(Resource):
     def get(self, keyword):
         employees = Employees.query.filter_by(Employees.name.ilike(r"%{}%".format(keyword))).all()
         employees = employee_schema.dump(employees).data
-        return{
-            'status': 'success'
-            'data': employees
-        }, 200
+        return {'status':'success','data':result}, 200
 
 class EmployeeByPosition(Resource):
     def get(self, keyword):
         employees = Employees.query.filter_by(Employees.position.ilike(r"%{}%".format(keyword))).all()
         employees = employee_schema.dump(employees).data
-        return{
-            'status': 'success'
-            'data': employees
-        }, 200
-
+        return {'status':'success','data':result}, 200
+        
 class EmployeeByEmail(Resource):
     def get(self, keyword):
         employees = Employees.query.filter_by(Employees.email.ilike(r"%{}%".format(keyword))).all()
@@ -153,3 +140,11 @@ class EmployeeByEmail(Resource):
             'data': employees
         }, 200
 
+class EmployeeByPhonenumber(Resource):
+    def get(self, keyword):
+        employees = Employees.query.filter_by(Employees.phone_no.ilike(r"%{}%".format(keyword))).all()
+        employees = employee_schema.dump(employees).data
+        return{
+            'status': 'success'
+            'data': employees
+        }, 200
