@@ -126,6 +126,9 @@ class EmployeeByName(Resource):
         return {'status':'success','data':result}, 200
 
 class EmployeeByPosition(Resource):
+    '''
+    function to search employee by their position
+    '''
     def get(self, keyword):
         employees = Employees.query.filter_by(Employees.position.ilike(r"%{}%".format(keyword))).all()
         employees = employee_schema.dump(employees).data
