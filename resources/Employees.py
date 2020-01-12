@@ -144,6 +144,9 @@ class EmployeeByEmail(Resource):
         return {'status':'success','data':result}, 200
 
 class EmployeeByPhonenumber(Resource):
+     '''
+    function to search employee by their phone number
+    '''
     def get(self, keyword):
         employees = Employees.query.filter_by(Employees.phone_no.ilike(r"%{}%".format(keyword))).all()
         employees = employee_schema.dump(employees).data
