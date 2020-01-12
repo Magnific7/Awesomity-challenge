@@ -128,6 +128,15 @@ class EmployeeByName(Resource):
     function to search employee by their name
     '''
     def get(self, keyword):
+        employees = Employees.query.filter_by(Employees.name.ilike(r"%{}%".format(keyword))).all()
+        employees = employee_schema.dump(employees).data
+        return{
+            'status': 'success'
+            'data': employees
+        }, 200
+
+class EmployeeByPosition(Resource):
+    def get(self, keyword):
         employees = Employees.query.filter_by(Employees.position.ilike(r"%{}%".format(keyword))).all()
         employees = employee_schema.dump(employees).data
         return{
@@ -135,3 +144,4 @@ class EmployeeByName(Resource):
             'data': employees
         }, 200
 
+class
