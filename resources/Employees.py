@@ -86,15 +86,20 @@ class EmployeeDelete(Resource):
             'data': result
         }, 201
 
-        # json_data = request.get_json(force=True)
-        # if not json_data:
-        #     return {'message':'No input data provided'}, 400
-        # data, errors = employee_schema.load(json_data)
-        # if errors:
-        #     return errors, 422
-        # employees = Employees.query.filter_by(id=data['id']).delete()
-        # db.session.commit()
+class EmployeeSuspend(Resource):
+    '''
+    Function to suspend  an employee
+    '''
+    def put(self, id):
+        employees = Employees.query.filter_by(id = id).first()
+        if not employees:
+            return {'message':'Employee does not exit'}, 400
 
-        # result = employee_schema.dump(employees).data
-        
-        # return {'status':'success','data':result}, 204
+        employees.status = 'inactive'
+        db.session.commit()
+
+        result = employee_schema.dump(employee).data
+        return {
+            'status': 'success'
+            'data': result
+        }, 201
