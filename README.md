@@ -15,6 +15,7 @@
 ######A manager should be able to search for an employee based on his position, name, email or phone number.
 ######>Search ROUTE: /employees/search (REQUEST: POST)
 
+
 ### Prerequisites
 You need the following to start working on the project on your local computer:
 
