@@ -98,7 +98,7 @@ class EmployeeSuspend(Resource):
         employees.status = 'inactive'
         db.session.commit()
 
-        result = employee_schema.dump(employee).data
+        result = employee_schema.dump(employees).data
         return {
             'status': 'success'
             'data': result
@@ -108,4 +108,16 @@ class EmployeeActivate(Resource):
     '''
     Function to active an employee.
     '''
-    
+    def put(self, id):
+        employees = Employees.query.filter_by(id = id).first()
+        if not employees:
+            return {'message':'Employee does not exit'}, 400
+
+        employees.status = 'active'
+        db.session.commit()
+
+        result = employee_schema.dump(employees).data
+        return {
+            'status': 'success'
+            'data': result
+        }, 201
