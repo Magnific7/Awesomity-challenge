@@ -25,7 +25,7 @@ class AllEmployees(Resource):
         data, errors = employee_schema.load(json_data)
         if errors:
             return errors, 422
-        employees = Employees.query.filter_by(national_id=data['national_id']).first()
+        employees = Employees.query.filter_by(name=data['name']).first()
         if employees:
             return {'message': 'Employee already exists'}, 400
         employees = Employees(
