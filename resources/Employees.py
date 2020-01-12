@@ -57,10 +57,10 @@ class EmployeeEdit(Resource):
         data, errors = employee_schema.load(json_data)
         if errors:
             return errors, 422
-        employees = Employees.query.filter_by(id=data['id']).first()
+        employees = Employees.query.filter_by(id= id).first()
         if not employees:
             return {'message':'Employee does not exit'}, 400
-            
+
         employees.name = data['name']
         employees.national_id = data['national_id']
         employees.phone_no = data['phone_no']
@@ -71,18 +71,30 @@ class EmployeeEdit(Resource):
         db.session.commit()
 
         result = employee_schema.dump(employees).data
-        return {'status':'success','data':result}, 204
+        return {'status':'success','data':result}, 201
 
-    def delete(self):
-        json_data = request.get_json(force=True)
-        if not json_data:
-            return {'message':'No input data provided'}, 400
-        data, errors = employee_schema.load(json_data)
-        if errors:
-            return errors, 422
-        employees = Employees.query.filter_by(id=data['id']).delete()
+class EmployeeDelete(Resource):
+    '''
+    Function to delete an employee 's credentials
+    '''
+    def delete(self, id):
+        employees = Employees.query.filter_by(id = id).delete()
         db.session.commit()
 
-        result = employee_schema.dump(employees).data
+        result = employee_schema.dump(employees).datareturn{
+            'status':'sucess',
+            'data': result
+        }, 201
+
+        # json_data = request.get_json(force=True)
+        # if not json_data:
+        #     return {'message':'No input data provided'}, 400
+        # data, errors = employee_schema.load(json_data)
+        # if errors:
+        #     return errors, 422
+        # employees = Employees.query.filter_by(id=data['id']).delete()
+        # db.session.commit()
+
+        # result = employee_schema.dump(employees).data
         
-        return {'status':'success','data':result}, 204
+        # return {'status':'success','data':result}, 204
