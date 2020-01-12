@@ -32,8 +32,19 @@ A computer running on either Windows, MacOS or Ubuntu operating system installed
 * Clone this repository to your local computer.
 * Ensure you have python3.6 installed in your computer.
 * From the terminal navigate to the cloned project folder.
-* Create a virtual environment and access the folder via your virtual amchine.
-* Install all packages by running " pip install -r requirements.txt"
+* Create a virtual environment 
+$ python3.6 -m venv env
+OR:
+$ python -m venv env
+* Access the folder via your virtual amchine and activate it by "$ source env/bin/activate"
+* Install all packages by running " $ pip install -r requirements.txt"
+* Set your databaase configurations in the config.py "SQLALCHEMY_DATABASE_URI = "postgresql://username:password@localhost/database_name"
+"
+* $ python migrate.py db init
+* $ python migrate.py db migrate
+* $ python migrate.py db upgrade
+
+* Run the application by " $ python run.py " on http://127.0.0.1:5000/api/employees
 
 ### Technologies Used
 *Python v3.6
@@ -42,4 +53,4 @@ A computer running on either Windows, MacOS or Ubuntu operating system installed
 ### License
 MIT License
 
-Copyright (c) 2019 UM MAGNIFIC
+Copyright (c) 2020 UM MAGNIFIC
