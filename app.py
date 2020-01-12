@@ -9,23 +9,23 @@ api = Api(api_bp)
 # Routes
 api.add_resource(Hello, '/')
 #route to see all employees
-api.add_resource(AllEmployees, '/Employees')
+api.add_resource(AllEmployees, '/employees')
 #route to search by email
-api.add_resource(EmployeeByEmail, '/Employees/email/<string:keyword>')
+api.add_resource(EmployeeByEmail, '/employees/email/<string:keyword>')
 #route to search by postition
-api.add_resource(EmployeeByPosition, '/Employees/position/<string:keyword>')
+api.add_resource(EmployeeByPosition, '/employees/position/<string:keyword>')
 #route to search by name
-api.add_resource(EmployeeByName, '/Employees/name/<string:keyword>')
+api.add_resource(EmployeeByName, '/employees/name/<string:keyword>')
 #route to search by phonenumber
-api.add_resource(EmployeeByPhonenumber, '/Employees/phone/<int:id>')
+api.add_resource(EmployeeByPhonenumber, '/employees/phone/<int:id>')
 #route to activate an employee
-api.add_resource(EmployeeActivate, '/Employees/<int:id>/activate')
+api.add_resource(EmployeeActivate, '/employees/<int:id>/activate')
 #route to suspend an employee
-api.add_resource(EmployeeSuspend, '/Employees/<int:id>/suspend')
+api.add_resource(EmployeeSuspend, '/employees/<int:id>/suspend')
 #route to 3dit employee credentials
-api.add_resource(EmployeeEdit, '/Employees/<int:id>')
+api.add_resource(EmployeeEdit, '/employees/<int:id>')
 #route to 3dit employee credentials
-api.add_resource(EmployeeDelete, '/Employees/<int:id>')
+api.add_resource(EmployeeDelete, '/employees/<int:id>')
 
 
 
