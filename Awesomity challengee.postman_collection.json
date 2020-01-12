@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "100b8680-8cd8-4927-bff6-dc8c9c74b282",
+		"name": "Awesomity challengee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "search by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/employees/name/jj",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employees",
+						"name",
+						"jj"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search by position",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/employees/position/vic",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employees",
+						"position",
+						"vic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "search by email",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/employees/email/ttt",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employees",
+						"email",
+						"ttt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all employees",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\n        {\n            \"position\": \"Secretary\",\n            \"dob\": \"2000-08-31T00:00:00\",\n            \"national_id\": \"7700088770000000\",\n            \"status\": \"active\",\n            \"creation_date\": \"2020-01-12T21:17:41.756491+00:00\",\n            \"id\": 4,\n            \"email\": \"kkyj@gmail.com\",\n            \"phone_no\": \"20979978\",\n            \"name\": \"Kama\"\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/employees",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Creating an employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n            \"position\": \"CEO\",\n            \"dob\": \"2099-07-31T00:00:00\",\n            \"national_id\": \"7700088770000000\",\n            \"status\": \"active\",\n            \"creation_date\": \"2020-01-12T21:17:41.756491+00:00\",\n            \"id\": 4,\n            \"email\": \"ceojyj@gmail.com\",\n            \"phone_no\": \"24409978\",\n            \"name\": \"Paul\"\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/employees",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete employee",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n            \"position\": \"CEO\",\n            \"dob\": \"2099-07-31T00:00:00\",\n            \"national_id\": \"7700088770000000\",\n            \"status\": \"active\",\n            \"creation_date\": \"2020-01-12T21:17:41.756491+00:00\",\n            \"id\": 4,\n            \"email\": \"ceojyj@gmail.com\",\n            \"phone_no\": \"24409978\",\n            \"name\": \"Paul\"\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/employees/4",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employees",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activate employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/employees/5/activate",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employees",
+						"5",
+						"activate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employee suspending",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/employees/6/suspend",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employees",
+						"6",
+						"suspend"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editing employee credentials",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n            \"position\": \"CEO\",\n            \"dob\": \"2099-07-31T00:00:00\",\n            \"national_id\": \"7700088770000000\",\n            \"status\": \"active\",\n            \"creation_date\": \"2020-01-12T21:17:41.756491+00:00\",\n            \"id\": 4,\n            \"email\": \"ceobbj@gmail.com\",\n            \"phone_no\": \"24409978\",\n            \"name\": \"Paul\"\n        }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/employees/6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"employees",
+						"6"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
