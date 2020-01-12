@@ -103,3 +103,9 @@ class EmployeeSuspend(Resource):
             'status': 'success'
             'data': result
         }, 201
+
+class EmployeeActivate(Resource):
+    '''
+    Function to active an employee.
+    '''
+    
