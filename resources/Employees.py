@@ -121,27 +121,36 @@ class EmployeeByName(Resource):
     function to search employee by their name
     '''
     def get(self, keyword):
-        employees = Employees.query.filter(Employees.name.ilike(r"%{}%".format(keyword))).all()
-        employees = employee_schema.dump(employees).data
-        return {'status':'success','data': employees}, 200
+        employee = Employees.query.filter(Employees.name.ilike(r"%{}%".format(keyword))).all()
+        employee = employees_schema.dump(employee).data
+        return {
+            'status': 'success',
+            'data': employee
+        }, 200
 
 class EmployeeByPosition(Resource):
     '''
     function to search employee by their position
     '''
     def get(self, keyword):
-        employees = Employees.query.filter(Employees.position.ilike(r"%{}%".format(keyword))).all()
-        employees = employee_schema.dump(employees).data
-        return {'status':'success','data':employees}, 200
+        employee = Employees.query.filter(Employees.position.ilike(r"%{}%".format(keyword))).all()
+        employee = employees_schema.dump(employee).data
+        return {
+            'status': 'success',
+            'data': employee
+        }, 200
 
 class EmployeeByEmail(Resource):
     '''
     function to search employee by their email
     '''
     def get(self, keyword):
-        employees = Employees.query.filter(Employees.email.ilike(r"%{}%".format(keyword))).all()
-        employees = employee_schema.dump(employees).data
-        return {'status':'success','data':employees}, 200
+        employee = Employees.query.filter(Employees.email.ilike(r"%{}%".format(keyword))).all()
+        employee = employees_schema.dump(employee).data
+        return {
+            'status': 'success',
+            'data': employee
+        }, 200
 
 class EmployeeByPhonenumber(Resource):
     '''
