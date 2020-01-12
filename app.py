@@ -16,7 +16,7 @@ api.add_resource(EmployeeByEmail, '/Employees/email/<string:keyword>')
 api.add_resource(EmployeeByPosition, '/Employees/position/<string:keyword>')
 #route to search by name
 api.add_resource(EmployeeByName, '/Employees/name/<string:keyword>')
-
+#route to search by phonenumber
 api.add_resource(EmployeeByPhonenumber, '/Employees/phone/<int:id>')
 api.add_resource(EmployeeByPhonenumber, '/Employees/phone/<int:id>')
 
