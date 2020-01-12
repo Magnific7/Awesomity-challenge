@@ -121,3 +121,17 @@ class EmployeeActivate(Resource):
             'status': 'success'
             'data': result
         }, 201
+
+        ## These are the search functionalities
+class EmployeeByName(Resource):
+    '''
+    function to search employee by their name
+    '''
+    def get(self, keyword):
+        employees = Employees.query.filter_by(Employees.position.ilike(r"%{}%".format(keyword))).all()
+        employees = employee_schema.dump(employees).data
+        return{
+            'status': 'success'
+            'data': employees
+        }, 200
+
