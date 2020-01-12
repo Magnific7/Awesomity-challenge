@@ -44,6 +44,10 @@ class AllEmployees(Resource):
 
         return {'status': 'success', 'data':result }, 201
 
+class EmployeeEdit(Resource):
+    '''
+    function to edit employee's credentials .
+    '''
     def put(self):
         json_data = request.get_json(force=True)
         if not json_data:
@@ -56,7 +60,14 @@ class AllEmployees(Resource):
         employees = Employees.query.filter_by(id=data['id']).first()
         if not employees:
             return {'message':'Employee does not exit'}, 400
+            
         employees.name = data['name']
+        employees.national_id = data['national_id']
+        employees.phone_no = data['phone_no']
+        employees.email = data['email']
+        employees.dob = data['dob']
+        employees.status = data['status']
+        employees.position = data['position']
         db.session.commit()
 
         result = employee_schema.dump(employees).data
