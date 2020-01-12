@@ -36,7 +36,6 @@ A computer running on either Windows, MacOS or Ubuntu operating system installed
 
 ### Technologies Used
 *Python v3.6
-* Boostrap
 * Flask
 
 ### License
