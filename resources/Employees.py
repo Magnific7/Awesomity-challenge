@@ -6,11 +6,16 @@ employees_schema = EmployeesSchema(many=True)
 employee_schema = EmployeesSchema()
 
 class AllEmployees(Resource):
+    '''
+    function to display all employees and there credentials.
+    '''
     def get(self):
         employees = Employees.query.all()
         employees = employees_schema.dump(employees).data
         return {'status': 'success', 'data':employees},200
-
+    '''
+    fuction to add an employee and their credentials.
+    '''
     def post(self):
         json_data = request.get_json(force=True)
         if not json_data:
