@@ -10,9 +10,11 @@ api = Api(api_bp)
 api.add_resource(Hello, '/')
 #route to see all employees
 api.add_resource(AllEmployees, '/Employees')
-#route to seaarch by email
+#route to search by email
 api.add_resource(EmployeeByEmail, '/Employees/email/<string:keyword>')
+#route to search by postition
 api.add_resource(EmployeeByPosition, '/Employees/position/<string:keyword>')
+#route to search by email
 api.add_resource(EmployeeByName, '/Employees/name/<string:keyword>')
 api.add_resource(EmployeeByPhonenumber, '/Employees/phone/<int:id>')
 api.add_resource(EmployeeByPhonenumber, '/Employees/phone/<int:id>')
