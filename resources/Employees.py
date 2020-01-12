@@ -144,4 +144,12 @@ class EmployeeByPosition(Resource):
             'data': employees
         }, 200
 
-class
+class EmployeeByEmail(Resource):
+    def get(self, keyword):
+        employees = Employees.query.filter_by(Employees.email.ilike(r"%{}%".format(keyword))).all()
+        employees = employee_schema.dump(employees).data
+        return{
+            'status': 'success'
+            'data': employees
+        }, 200
+
